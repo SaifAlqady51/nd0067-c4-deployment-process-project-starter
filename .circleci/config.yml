@@ -1,8 +1,8 @@
 version: 2.1
 orbs:
   # orgs contain basc recipes and reproducible actions (install node, aws, etc.)
-  yarn: itinerisltd/yarn@2.1.1
-  # node: circleci/node@5.0.2
+  # yarn: itinerisltd/yarn@2.1.1
+  node: circleci/node@5.0.2
   eb: circleci/aws-elastic-beanstalk@2.0.1
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
@@ -24,7 +24,7 @@ jobs:
             echo $(node --version)
             echo "NPM --version" 
             echo $(npm --version)
-            yarn frontend:install
+            npm frontend:install
       # TODO: Install dependencies in the the backend API          
       - run:
           name: Install API Dependencies
