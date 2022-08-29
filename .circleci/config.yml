@@ -7,7 +7,7 @@ orbs:
   aws-cli: circleci/aws-cli@3.1.1
   # different jobs are calles later in the workflows sections
 jobs:
-  build:
+  build-test:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
@@ -49,17 +49,22 @@ jobs:
           command: |
             echo "TODO: Build the backend API"
             npm run api:build
+      - run:
+          name: Test Front-End
+          command: |
+            npm run frontend:test
+
 
   # test step will run after building the app
-  test:
-    docker:
-      # the base image can run most needed actions with orbs
-      - image: "cimg/node:14.15"
-    steps:
-        # install node and checkout code
-      - node/install:
-          node-version: '14.15'         
-      - checkout
+  # test:
+  #   docker:
+  #     # the base image can run most needed actions with orbs
+  #     - image: "cimg/node:14.15"
+  #   steps:
+  #       # install node and checkout code
+  #     - node/install:
+  #         node-version: '14.15'         
+  #     - checkout
       - run:
           name: Test Front-End
           command: |
@@ -85,26 +90,20 @@ jobs:
 
 
 
+
+            
 workflows:
   udagram:
     jobs:
-      - build
-      - test:
-        requires:
-          - build
-            
-# workflows:
-#   udagram:
-#     jobs:
-#       - build
-#       - hold:
-#           filters:
-#             branches:
-#               only:
-#                 - master
-#           type: approval
-#           requires:
-#             - build
-#       - deploy:
-#           requires:
-#             - hold
+      - build-test
+      - hold:
+          filters:
+            branches:
+              only:
+                - master
+          type: approval
+          requires:
+            - build
+      - deploy:
+          requires:
+            - hold
