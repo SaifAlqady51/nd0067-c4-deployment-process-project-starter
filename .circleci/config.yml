@@ -89,7 +89,7 @@ workflows:
   udagram:
     jobs:
       - build
-      - test
+      - test:
         requires:
           - build
             
