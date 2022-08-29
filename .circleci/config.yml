@@ -103,7 +103,7 @@ workflows:
                 - master
           type: approval
           requires:
-            - build
+            - build-test
       - deploy:
           requires:
             - hold
