@@ -87,11 +87,11 @@ jobs:
 
 workflows:
   udagram:
-  jobs:
-    - build
-    - test
-      requires:
-        - build
+    jobs:
+      - build
+      - test
+        requires:
+          - build
             
 # workflows:
 #   udagram:
