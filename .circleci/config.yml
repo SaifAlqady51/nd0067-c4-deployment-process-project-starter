@@ -68,6 +68,7 @@ jobs:
           command: |
             echo "# TODO: Install, build, deploy in both apps"
             npm run api:deploy
+            
 workflows:
   udagram:
     jobs:
