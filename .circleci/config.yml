@@ -63,12 +63,18 @@ jobs:
       - aws-cli/setup
       - checkout
       - run:
-          name: Deploy App
+          name: Deploy api
           # TODO: Install, build, deploy in both apps
           command: |
-            echo "# TODO: Install, build, deploy in both apps"
+            echo "# TODO: Install, build, deploy api"
             npm run api:deploy
+      - run:
+          name: Deploy frontEnd
+          # TODO: Install, build, deploy in both apps
+          command: |
+            echo "# TODO: Install, build, deploy frontend"
             npm run frontend:deploy
+
 workflows:
   udagram:
     jobs:
