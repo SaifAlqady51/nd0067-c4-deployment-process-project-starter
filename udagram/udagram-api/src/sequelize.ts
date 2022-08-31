@@ -9,7 +9,7 @@ import { config } from "./config/config";
 
 
 export const sequelize = new Sequelize(
-  `postgres://${config.username}:password@database-udagram.cgtnrc6jnrh7.us-east-1.rds.amazonaws.com:5432/postgres`
+  `postgres://postgres:password@database-udagram.cgtnrc6jnrh7.us-east-1.rds.amazonaws.com:5432/postgres`
 )
 
 
