@@ -20,4 +20,6 @@ export const config = {
   jwt: {
     secret: process.env.JWT_SECRET,
   },
+  rds_password:`${process.env.RDS_PASSWORD}`,
+  rds:`${process.env.RDS_DB}` 
 };
