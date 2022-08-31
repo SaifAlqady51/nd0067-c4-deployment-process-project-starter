@@ -12,7 +12,7 @@
     "dev": "npx ts-node-dev --respawn --transpileOnly ./src/server.ts",
     "prod": "npx tsc && node ./www/server.js",
     "clean": "rm -rf www/ || true",
-    "deploy": "eb init udagram-api -p '64bit Amazon Linux 2 v5.5.5 running Node.js 14' --region us-east-1 && eb setenv PORT=8080 && eb use udagram-dev  && eb deploy",
+    "deploy": "eb init udagram-api -p '64bit Amazon Linux 2 v5.5.5 running Node.js 14' --region us-east-1 &&  eb use udagram-dev eb setenv PORT=8080 && eb deploy",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
