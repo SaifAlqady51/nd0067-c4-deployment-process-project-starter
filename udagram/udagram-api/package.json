@@ -14,7 +14,7 @@
     "clean": "rm -rf www/ || true",
     "build": "npm run clean && tsc && cp -rf src/config www/config && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "npm install && npm run build && eb init udagram-api -p '64bit Amazon Linux 2 v5.5.5 running Node.js 14' --region us-east-1 &&  eb use udagram-dev &&  eb deploy"
+    "deploy": "npm install && npm run build && eb init udagram-api -p '64bit Amazon Linux 2 v5.5.5 running Node.js 14' --region us-east-1 &&  eb use udagram-dev && eb setenv POSTGRES_USERNAME=$POSTGRES_USERNAME && eb deploy"
 
   },
   "keywords": [],
