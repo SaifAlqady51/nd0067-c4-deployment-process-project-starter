@@ -3,9 +3,9 @@ import { Sequelize } from "sequelize-typescript";
 import { config } from "./config/config";
 
 
-// export const sequelize = new Sequelize(
-//   `postgres://${config.username}:${config.rds_password}@${config.rds}:5432/postgres`
-// );
+export const sequelize = new Sequelize(
+  `postgres://${config.username}:${config.rds_password}@${config.rds}:5432/postgres`
+);
 
 
 // export const sequelize = new Sequelize(
@@ -14,13 +14,13 @@ import { config } from "./config/config";
 
 
 
-export const sequelize = new Sequelize({
-  username: config.username,
-  password: config.rds_password,
-  database: config.database,
-  host: config.host,
-  port: config.postgres_port,
+// export const sequelize = new Sequelize({
+//   username: config.username,
+//   password: config.rds_password,
+//   database: config.database,
+//   host: config.host,
+//   port: config.postgres_port,
 
-  dialect: "postgres",
-  storage: ":memory:",
-});
+//   dialect: "postgres",
+//   storage: ":memory:",
+// });
